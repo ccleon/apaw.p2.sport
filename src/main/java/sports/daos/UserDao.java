@@ -1,5 +1,9 @@
 package sports.daos;
 
-public class UserDao {
+import java.util.List;
+import sports.entities.User;
 
+public interface UserDao extends GenericDao<User, String>{
+	List<String> findValueByUserNick(int userNick);
+	
 }

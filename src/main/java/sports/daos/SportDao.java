@@ -1,5 +1,8 @@
 package sports.daos;
 
-public class SportDao {
+import java.util.List;
+import sports.entities.Sport;
+
+public interface SportDao extends GenericDao<Sport, Integer>{
 
 }
