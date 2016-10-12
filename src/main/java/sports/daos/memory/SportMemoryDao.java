@@ -1,15 +1,14 @@
 package sports.daos.memory;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import sports.daos.UserDao;
+import sports.entities.Sport;
 import sports.daos.SportDao;
 
-public class SportMemoryDao extends GenericMemoryDao<Sport> implements UserDao{
+public class SportMemoryDao extends GenericMemoryDao<Sport> implements SportDao{
 	
-	public SportDaoMemory() {
+	public SportMemoryDao() {
 		this.setMap(new HashMap<Integer,Sport>());
 	}
 
@@ -24,15 +23,14 @@ public class SportMemoryDao extends GenericMemoryDao<Sport> implements UserDao{
 	}
 
 	@Override
-	public List<Integer> findValueBySportId(int sportId) {
+	public Sport findSportByName(String name) {
 		List<Sport> sports = this.findAll();
-		List<Integer> sportsValue = new ArrayList<>();
 		for (Sport sport : sports) {
-			if (sport.getTheme().getId() == sportId) {
-				sportssValue.add(sport.getValue());
+			if (sport.getName() == name) {
+				return sport;
 			}
 		}
-		return sportValue;
+		return null;
 	}
 
 }

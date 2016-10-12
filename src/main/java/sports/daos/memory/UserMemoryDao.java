@@ -1,14 +1,14 @@
 package sports.daos.memory;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import sports.daos.UserDao;
 import sports.entities.User;
 
-public class UserMemoryDao extends GenericMemeoryDao<User> implements UserDao{
-	public UserDaoMemory() {
+public class UserMemoryDao extends GenericMemoryDao<User> implements UserDao{
+	
+	public UserMemoryDao() {
 		this.setMap(new HashMap<Integer,User>());
 	}
 
@@ -23,15 +23,14 @@ public class UserMemoryDao extends GenericMemeoryDao<User> implements UserDao{
 	}
 
 	@Override
-	public List<Integer> findValueByThemeId(int themeId) {
-		List<Vote> votes = this.findAll();
-		List<Integer> votesValue = new ArrayList<>();
-		for (Vote vote : votes) {
-			if (vote.getTheme().getId() == themeId) {
-				votesValue.add(vote.getValue());
+	public User findUserByNick(String nick) {
+		List<User> users = this.findAll();
+		for (User user : users) {
+			if (user.getNick() == nick) {
+				return user;
 			}
 		}
-		return votesValue;
+		return null;
 	}
 
 }

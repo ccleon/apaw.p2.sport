@@ -3,7 +3,7 @@ package sports.wrappers;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.upm.miw.apiArchitectureTheme.wrappers.VoteWrapper;
+import sports.wrappers.SportWrapper;
 
 public class SportListWrapper {
 	List <SportWrapper> sportList = new ArrayList<>();
