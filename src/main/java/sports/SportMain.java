@@ -33,6 +33,22 @@ public class SportMain {
 		request.setPath("users");
 		request.setBody("uno:tres@gmail.com");
 		this.request();
+		request.setMethod(HttpMethod.POST);
+		request.setPath("sports");
+		request.setBody("tenis");
+		this.request();
+		request.setMethod(HttpMethod.POST);
+		request.setPath("sports");
+		request.setBody("tenis");
+		this.request();
+		request.setMethod(HttpMethod.POST);
+		request.setPath("sports");
+		request.setBody("futbol");
+		this.request();
+		request.setMethod(HttpMethod.GET);
+		request.setPath("users");
+		this.request();
+		
 		/*request.setBody("dos:dos@gmail.com");
 		this.request();
 		request.setBody("uno:tres@gmail.com");
@@ -45,7 +61,7 @@ public class SportMain {
 		request.setBody("2:5");
 		this.request();
 		request.setBody("2:6");
-		this.request();*/
+		this.request();
 		request.setMethod(HttpMethod.GET);
 		request.setPath("users");
 		request.clearQueryParams();
