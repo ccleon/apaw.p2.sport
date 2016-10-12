@@ -25,8 +25,8 @@ public class Dispatcher {
 				responseError(response, e);
 			}*/
 			// **/sports
-		} else if ("sports".equals(request.getPath())) {
-			response.setBody(sportResource.sportsList().toString());
+		/*} else if ("sports".equals(request.getPath())) {
+			response.setBody(sportResource.sportsList().toString());*/
 		} else {
 			responseError(response, new InvalidRequestException(request.getPath()));
 		}
@@ -34,7 +34,7 @@ public class Dispatcher {
 
 	public void doPost(HttpRequest request, HttpResponse response) {
 		switch (request.getPath()) {
-		// POST **/themes body="nick:email"
+		// POST **/users body="nick:email"
 		case "users":
 			String nick = request.getBody().split(":")[0];
 			String email = request.getBody().split(":")[1];
@@ -42,13 +42,13 @@ public class Dispatcher {
 			try {
 				userResource.createUser(String.valueOf(nick), String.valueOf(email));
 				response.setStatus(HttpStatus.CREATED);
-			} catch (InvalidUserFieldException e) {
+			} catch (InvalidUserNickException e) {
 				this.responseError(response, e);
 			}
 			break;
 		// POST sports body="name"
 		case "sports":
-			String themeId = request.getBody().split(":")[0];
+			/*String themeId = request.getBody().split(":")[0];
 			String vote = request.getBody().split(":")[1];
 			try {
 				sportResource.createVote(Integer.valueOf(themeId), Integer.valueOf(vote));
@@ -56,7 +56,7 @@ public class Dispatcher {
 			} catch (Exception e) {
 				responseError(response, e);
 			}
-			break;
+			break;*/
 		default:
 			responseError(response, new InvalidRequestException(request.getPath()));
 			break;

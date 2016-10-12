@@ -1,12 +1,13 @@
 package sports.api;
 
 import sports.controllers.UserController;
+import sports.wrappers.UserListWrapper;
 
 public class UserResource {
 	
 	//GET **/users
 	public UserListWrapper userList(){
-		return new UserController.userList();
+		return new UserController().userList();
 	}
 	
 	//POST /users body="nick:email"

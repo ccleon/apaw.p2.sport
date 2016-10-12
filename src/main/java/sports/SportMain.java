@@ -8,8 +8,8 @@ import web.http.HttpResponse;
 import upm.jbb.IO;
 
 public class SportMain {
+	
 	private Server server = new Server();
-
 	private HttpRequest request = new HttpRequest();
 
 	public void help() {
@@ -22,10 +22,20 @@ public class SportMain {
 
 	public void demo() {
 		request.setMethod(HttpMethod.POST);
-		/*request.setPath("themes");
-		request.setBody("uno");
+		request.setPath("users");
+		request.setBody("uno:uno@gmail.com");
 		this.request();
-		request.setBody("dos");
+		request.setMethod(HttpMethod.POST);
+		request.setPath("users");
+		request.setBody("dos:dos@gmail.com");
+		this.request();
+		request.setMethod(HttpMethod.POST);
+		request.setPath("users");
+		request.setBody("uno:tres@gmail.com");
+		this.request();
+		/*request.setBody("dos:dos@gmail.com");
+		this.request();
+		request.setBody("uno:tres@gmail.com");
 		this.request();
 		request.setPath("votes");
 		request.setBody("1:4");
