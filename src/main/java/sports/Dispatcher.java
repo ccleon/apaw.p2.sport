@@ -26,7 +26,7 @@ public class Dispatcher {
 			}*/
 			// **/sports
 		/*} else if ("sports".equals(request.getPath())) {
-			response.setBody(sportResource.sportsList().toString());*/
+			response.setBody(sportResource.sportList().toString());*/
 		} else {
 			responseError(response, new InvalidRequestException(request.getPath()));
 		}
@@ -48,15 +48,13 @@ public class Dispatcher {
 			break;
 		// POST sports body="name"
 		case "sports":
-			/*String themeId = request.getBody().split(":")[0];
-			String vote = request.getBody().split(":")[1];
 			try {
-				sportResource.createVote(Integer.valueOf(themeId), Integer.valueOf(vote));
+				sportResource.createSport(request.getBody());
 				response.setStatus(HttpStatus.CREATED);
-			} catch (Exception e) {
+			} catch (InvalidSportException e) {
 				responseError(response, e);
 			}
-			break;*/
+			break;
 		default:
 			responseError(response, new InvalidRequestException(request.getPath()));
 			break;
