@@ -40,7 +40,7 @@ public class Dispatcher {
 			String email = request.getBody().split(":")[1];
 			// Injectar parámetros...
 			try {
-				userResource.createUser(request.getBody());
+				userResource.createUser(String.valueOf(nick), String.valueOf(email));
 				response.setStatus(HttpStatus.CREATED);
 			} catch (InvalidUserFieldException e) {
 				this.responseError(response, e);

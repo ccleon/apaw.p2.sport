@@ -9,7 +9,11 @@ public class UserResource {
 		return new UserController.userList();
 	}
 	
-	//GET /users/search?sport=?
+	//POST /users body="nick:email"
+	public void createUser (String nick, String email) throws InvalidUserNickException{
+		
+	}
+	
 	
 	//POST **/users/{nick}/sport body="sportName"
 	/*public void createUser(String nick, String email) throws InvalidUserException{
@@ -20,7 +24,7 @@ public class UserResource {
 	private void validateField(String field) throws InvalidUserException {
 		if (field == null || field.isEmpty()) {
 			throw new InvalidThemeFieldException(field);
-		}
-	}*/
+		}*/
+	}
 	
 	
