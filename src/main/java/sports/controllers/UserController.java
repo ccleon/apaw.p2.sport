@@ -37,15 +37,14 @@ public class UserController {
 	    }
 		return new UserWrapper(user.getNick(), user.getEmail());
 	}
-}
 
-	
-	/*public UserListWrapper SportToUser (String sportName){
-		List<User> usersFound = DaoFactory.getFactory().getUserDao().findUsersbySport(sportName);
-		UserListWrapper userSportListWrapper = new UserListWrapper();
+	public UserListWrapper findUsersBySport (String sportName){
+		List<User> usersFound = DaoFactory.getFactory().getUserDao().findUsersBySport(sportName);
+		UserListWrapper usersFoundListWrapper = new UserListWrapper();
 		for (User user : usersFound){
-			userSportListWrapper.addUserWrapper(new UserWrapper(user.getNick()));
+			usersFoundListWrapper.addUserWrapper(new UserWrapper(user.getNick()));
 		}
-		return userSportListWrapper;
-	}*/
+		return usersFoundListWrapper;
+	}
+}
 

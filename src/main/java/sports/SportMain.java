@@ -15,9 +15,9 @@ public class SportMain {
 	public void help() {
 		IO.getIO().println("GET **/users");
 		IO.getIO().println("POST **/users   body=\"nick:email\"");
-		IO.getIO().println("GET **/users/search?sport=?");
+		IO.getIO().println("GET **/users/search?sport=*");
 		IO.getIO().println("POST **/sports   body=\"name\"");
-		IO.getIO().println("PUT **/users/{nick}/sports body=\"sportName");
+		IO.getIO().println("PUT **/users/{nick}/sport body=\"sportName");
 	}
 
 	public void demo() {
@@ -25,12 +25,8 @@ public class SportMain {
 		request.setPath("users");
 		request.setBody("uno:uno@gmail.com");
 		this.request();
-		request.setMethod(HttpMethod.POST);
-		request.setPath("users");
 		request.setBody("dos:dos@gmail.com");
 		this.request();
-		request.setMethod(HttpMethod.POST);
-		request.setPath("users");
 		request.setBody("uno:tres@gmail.com");
 		this.request();
 		request.setMethod(HttpMethod.GET);
@@ -41,12 +37,8 @@ public class SportMain {
 		request.setPath("sports");
 		request.setBody("tenis");
 		this.request();
-		request.setMethod(HttpMethod.POST);
-		request.setPath("sports");
 		request.setBody("tenis");
 		this.request();
-		request.setMethod(HttpMethod.POST);
-		request.setPath("sports");
 		request.setBody("ajedrez");
 		this.request();
 		
@@ -54,31 +46,22 @@ public class SportMain {
 		request.setPath("users/uno/sport");
 		request.setBody("tenis");
 		this.request();
-		request.setMethod(HttpMethod.PUT);
-		request.setPath("users/uno/sport");
 		request.setBody("NoDeporte");
 		this.request();
-		request.setMethod(HttpMethod.PUT);
 		request.setPath("users/dos/sport");
 		request.setBody("tenis");
 		this.request();
-		request.setMethod(HttpMethod.PUT);
-		request.setPath("users/dos/sport");
 		request.setBody("ajedrez");
 		this.request();
 		
+		request.setMethod(HttpMethod.GET);
+		request.setPath("users/search");
+		request.addQueryParam("sport", "tenis");
+		this.request();
 		
-		//Exceptions
-		/*request.setPath("noValid");
-		this.request();
-		request.setPath("themes/x/overage");
-		this.request();
-		request.setPath("themes/99/overage");
-		this.request();
 		request.setMethod(HttpMethod.POST);
-		/*request.setPath("votes");
-		request.setBody("99:4");
-		this.request();*/
+		request.setPath("noPath");
+		this.request();
 	}
 
 	public void httpMethod() {

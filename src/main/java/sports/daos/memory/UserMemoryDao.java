@@ -35,11 +35,11 @@ public class UserMemoryDao extends GenericMemoryDao<User> implements UserDao{
 	}
 
 	@Override
-	public List<User> findUsersbySport(String sportName) {
+	public List<User> findUsersBySport(String sportName) {
 		List<User> users = this.findAll();
 		List<User> foundUsers = new ArrayList<>();
 		for (User user : users){
-			if (user.getSport().contains(sportName)){
+			if (user.getSport().toString().contains(sportName)){
 				foundUsers.add(user);
 			}
 		}

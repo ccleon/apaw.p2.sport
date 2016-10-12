@@ -41,11 +41,12 @@ public class UserWrapper {
 		this.email = email;
 	}
 	
-	
 	@Override
 	public String toString(){
-		return "{" + nick + ":" + email + "}";
+		if (email == null){
+			return nick;
+		}else{
+			return "{" + nick + ":" + email + "}";
+		}
 	}
-	
-
 }

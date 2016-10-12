@@ -21,8 +21,8 @@ public class UserResource {
 	}
 	
 	//GET /users/search?sport=*
-	public UserListWrapper userSportList(String sportName){
-		return null;
+	public UserListWrapper findUsersBySport(String sportName){
+		return new UserController().findUsersBySport(sportName);
 	}
 	
 	//PUT /users/{nick}/sport body=sportName

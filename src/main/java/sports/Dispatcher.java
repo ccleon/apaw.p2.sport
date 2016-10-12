@@ -17,14 +17,14 @@ public class Dispatcher {
 		// **/users
 		if ("users".equals(request.getPath())) {
 			response.setBody(userResource.userList().toString());
-		// **/users/search?sport=?
-		/*} else if () {
-			try {
-				;
-			} catch (Exception e) {
-				responseError(response, e);
-			}*/
-		} else {
+		// **/users/search?sport=*
+		}else if ("users".equals(request.paths()[0]) && "search".equals(request.paths()[1])) {
+            try {
+            	response.setBody(userResource.findUsersBySport(request.getParams().get("sport")).toString());
+            } catch (Exception e) {
+                responseError(response, e);
+            }
+		}else{
 			responseError(response, new InvalidRequestException(request.getPath()));
 		}
 	}
@@ -35,7 +35,6 @@ public class Dispatcher {
 		case "users":
 			String nick = request.getBody().split(":")[0];
 			String email = request.getBody().split(":")[1];
-			// Injectar parámetros...
 			try {
 				userResource.createUser(String.valueOf(nick), String.valueOf(email));
 				response.setStatus(HttpStatus.CREATED);
@@ -78,5 +77,4 @@ public class Dispatcher {
 			break;
 		}
 	}
-
 }
