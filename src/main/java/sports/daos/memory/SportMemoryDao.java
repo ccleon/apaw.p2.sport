@@ -26,7 +26,7 @@ public class SportMemoryDao extends GenericMemoryDao<Sport> implements SportDao{
 	public Sport findSportByName(String name) {
 		List<Sport> sports = this.findAll();
 		for (Sport sport : sports) {
-			if (sport.getName() == name) {
+			if (sport.getName().equals(name)) {
 				return sport;
 			}
 		}

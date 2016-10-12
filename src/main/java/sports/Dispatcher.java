@@ -14,19 +14,16 @@ public class Dispatcher {
 	}
 
 	public void doGet(HttpRequest request, HttpResponse response) {
-		// **/themes
+		// **/users
 		if ("users".equals(request.getPath())) {
 			response.setBody(userResource.userList().toString());
-			// **/themes/{id}/overage
-		/*} else if ("themes".equals(request.paths()[0]) && "overage".equals(request.paths()[2])) {
+		// **/users/search?sport=?
+		/*} else if () {
 			try {
-				response.setBody(userResource.themeOverage(Integer.valueOf(request.paths()[1])).toString());
+				;
 			} catch (Exception e) {
 				responseError(response, e);
 			}*/
-			// **/sports
-		/*} else if ("sports".equals(request.getPath())) {
-			response.setBody(sportResource.sportList().toString());*/
 		} else {
 			responseError(response, new InvalidRequestException(request.getPath()));
 		}
@@ -62,10 +59,15 @@ public class Dispatcher {
 	}
 
 	public void doPut(HttpRequest request, HttpResponse response) {
-		switch (request.getPath()) {
-		default:
+		// PUT /users/{nick}/sport body="sportName"
+		if ("users".equals(request.paths()[0]) && "sport".equals(request.paths()[2])){
+			try{
+				userResource.addSportToUser(request.paths()[1], request.getBody());
+			}catch (Exception e){
+				this.responseError(response,  e);
+			}
+		}else{
 			responseError(response, new InvalidRequestException(request.getPath()));
-			break;
 		}
 	}
 

@@ -21,7 +21,7 @@ public class SportListWrapper {
 	
 	@Override
 	public String toString() {
-		String result = "{\"sportList\":[ ";
+		String result = "{\"Sports\":[ ";
 		for (SportWrapper sportWrapper : sportList) {
 			result += sportWrapper.toString() + ",";
 		}

@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserListWrapper {
-	List<UserWrapper> userList = new ArrayList<>();
+	List<UserWrapper> userList;
 	
 	public UserListWrapper(){
+		userList = new ArrayList<>();
 	}
 	
 	public List<UserWrapper> getUserList(){
@@ -19,7 +20,7 @@ public class UserListWrapper {
 	
 	@Override
 	public String toString(){
-		String result = "{\"userList\":[";
+		String result = "{\"Users\":[";
 		for (UserWrapper userWrapper : userList){
 			result += userWrapper.toString() + ",";
 		}

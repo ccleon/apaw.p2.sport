@@ -13,6 +13,10 @@ public class UserWrapper {
 		this.setEmail(email);
 	}
 	
+	public UserWrapper(String nick){
+		this.setNick(nick);
+	}
+	
 	public String getNick(){
 		return nick;
 	}
@@ -28,12 +32,19 @@ public class UserWrapper {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getEmail(){
 		return email;
 	}
 	
 	public void setEmail(String email){
 		this.email = email;
+	}
+	
+	
+	@Override
+	public String toString(){
+		return "{" + nick + ":" + email + "}";
 	}
 	
 

@@ -2,9 +2,11 @@ package sports.controllers;
 
 import java.util.List;
 import sports.daos.DaoFactory;
+import sports.entities.Sport;
 import sports.entities.User;
 import sports.wrappers.UserListWrapper;
 import sports.wrappers.UserWrapper;
+
 
 public class UserController {
 	
@@ -26,5 +28,24 @@ public class UserController {
 		}
 		return userListWrapper;
 	}
-
+	
+	public UserWrapper addSportToUser(String nick, String sportName){
+		User user = DaoFactory.getFactory().getUserDao().findUserByNick(nick);
+		if (user != null) {
+	        user.addSport(new Sport(sportName));
+	        DaoFactory.getFactory().getUserDao().update(user);
+	    }
+		return new UserWrapper(user.getNick(), user.getEmail());
+	}
 }
+
+	
+	/*public UserListWrapper SportToUser (String sportName){
+		List<User> usersFound = DaoFactory.getFactory().getUserDao().findUsersbySport(sportName);
+		UserListWrapper userSportListWrapper = new UserListWrapper();
+		for (User user : usersFound){
+			userSportListWrapper.addUserWrapper(new UserWrapper(user.getNick()));
+		}
+		return userSportListWrapper;
+	}*/
+

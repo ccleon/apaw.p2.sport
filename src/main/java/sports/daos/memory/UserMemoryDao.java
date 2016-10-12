@@ -1,5 +1,6 @@
 package sports.daos.memory;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -31,6 +32,18 @@ public class UserMemoryDao extends GenericMemoryDao<User> implements UserDao{
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public List<User> findUsersbySport(String sportName) {
+		List<User> users = this.findAll();
+		List<User> foundUsers = new ArrayList<>();
+		for (User user : users){
+			if (user.getSport().contains(sportName)){
+				foundUsers.add(user);
+			}
+		}
+		return foundUsers;
 	}
 
 }

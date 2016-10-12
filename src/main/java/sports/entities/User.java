@@ -38,6 +38,10 @@ public class User {
 		return sports;
 	}
 	
+	public void addSport (Sport sport){
+		sports.add(sport);
+	}
+	
 	@Override
 	public String toString() {
 		return "User [nick=" + nick + ", email=" + email + "]";

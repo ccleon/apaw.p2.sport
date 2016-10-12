@@ -26,5 +26,14 @@ public class SportController {
 		}
 		return sportListWrapper;
 	}
+	
+	public boolean findSport (String name){
+		Sport sport = DaoFactory.getFactory().getSportDao().findSportByName(name);
+		if (sport == null){
+			return false;
+		}else{
+			return true;
+		}
+	}
 
 }
